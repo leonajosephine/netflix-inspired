@@ -2,13 +2,15 @@ import type { TmdbMovie } from "../types/tmdb";
 import { tmdbImage } from "../services/tmdb";
 
 type Props = {
-  title: string;
-  movies: TmdbMovie[];
-  loading?: boolean;
-  error?: string | null;
-};
+    title: string;
+    movies: TmdbMovie[];
+    loading?: boolean;
+    error?: string | null;
+    onSelect?: (movie: TmdbMovie) => void;
+  };
+  
 
-export default function MovieRow({ title, movies, loading, error }: Props) {
+export default function MovieRow({ title, movies, loading, error, onSelect }: Props) {
   return (
     <section className="px-6 py-4">
       <h2 className="mb-3 text-lg font-semibold tracking-wide">{title}</h2>
@@ -23,12 +25,13 @@ export default function MovieRow({ title, movies, loading, error }: Props) {
             const img = tmdbImage(m.poster_path, "w300");
 
             return (
-              <button
+                <button
                 key={m.id}
                 type="button"
+                onClick={() => onSelect?.(m)}
                 className="group relative w-[140px] shrink-0 rounded-lg bg-white/5 text-left transition hover:scale-[1.03] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
                 aria-label={`Open details for ${name}`}
-              >
+                >
                 <div className="aspect-[2/3] w-full overflow-hidden rounded-lg">
                   {img ? (
                     <img
