@@ -94,14 +94,14 @@ export default function MovieModal({ movie, onClose }: Props) {
             <div className="mt-5 flex flex-wrap gap-3">
               <button
                 type="button"
-                className="rounded-lg bg-white px-4 py-2 text-sm font-semibold text-black hover:bg-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-              >
+                className="rounded-xl bg-white px-5 py-2.5 text-sm font-semibold text-black shadow-lg shadow-white/10 hover:bg-white/90 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                >
                 ▶ Play
               </button>
               <button
                 type="button"
-                className="rounded-lg bg-white/10 px-4 py-2 text-sm font-semibold text-white hover:bg-white/15 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
-              >
+                className="rounded-xl border border-white/20 bg-white/10 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur hover:bg-white/15 hover:border-white/30 active:scale-[0.98] focus:outline-none focus-visible:ring-2 focus-visible:ring-white/80"
+                >
                 + My List
               </button>
             </div>
