@@ -31,6 +31,10 @@ export default function HeroBanner({ movie, onMoreInfo }: Props) {
           {/* overlays */}
           <div className="absolute inset-0 bg-gradient-to-r from-black via-black/40 to-transparent" />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          <div className="absolute inset-0 opacity-30 mix-blend-overlay">
+            <div className="h-full w-full bg-[radial-gradient(circle_at_20%_10%,rgba(255,255,255,0.18),transparent_40%),radial-gradient(circle_at_80%_20%,rgba(255,255,255,0.10),transparent_45%)]" />
+          </div>
+
 
           <div className="absolute bottom-0 left-0 right-0 p-6 md:p-10">
             <div className="max-w-xl">

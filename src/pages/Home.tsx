@@ -31,12 +31,14 @@ export default function Home() {
     <div className="min-h-screen bg-black text-white">
       <header
         className={[
-          "sticky top-0 z-20 border-b border-white/10 backdrop-blur transition",
-          scrolled ? "bg-black/85" : "bg-black/55",
-        ].join(" ")}
+            "sticky top-0 z-20 transition",
+            "border-b border-white/10",
+            "bg-black/40 backdrop-blur-xl",
+            scrolled ? "shadow-lg shadow-black/30" : "",
+          ].join(" ")}          
       >
         <div className="flex items-center justify-between px-6 py-4">
-          <div className="text-xl font-bold tracking-tight">
+          <div className="text-2xl font-bold tracking-wide">
             <span className="text-white">NET</span>
             <span className="text-red-500">FLIX</span>
           </div>
