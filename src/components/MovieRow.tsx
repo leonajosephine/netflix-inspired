@@ -6,11 +6,12 @@ type Props = {
     movies: TmdbMovie[];
     loading?: boolean;
     error?: string | null;
-    onSelect?: (movie: TmdbMovie) => void;
+    mediaType: "movie" | "tv";
+    onSelect?: (movie: TmdbMovie, mediaType: "movie" | "tv") => void;
   };
   
 
-export default function MovieRow({ title, movies, loading, error, onSelect }: Props) {
+export default function MovieRow({ title, movies, loading, error,mediaType, onSelect }: Props) {
   return (
     <section className="px-6 py-4">
       <h2 className="mb-3 text-lg font-semibold tracking-wide">{title}</h2>
@@ -31,7 +32,7 @@ export default function MovieRow({ title, movies, loading, error, onSelect }: Pr
                 <button
                     key={m.id}
                     type="button"
-                    onClick={() => onSelect?.(m)}
+                    onClick={() => onSelect?.(m, mediaType)}
                     className="
                         group relative shrink-0
                         w-[170px] md:w-[200px]
