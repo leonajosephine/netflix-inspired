@@ -1,4 +1,5 @@
 import type { TmdbListResponse, TmdbMovie } from "../types/tmdb";
+import type { TmdbVideoResponse } from "../types/tmdb";
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY as string | undefined;
 const BASE_URL = (import.meta.env.VITE_TMDB_BASE_URL as string) ?? "https://api.themoviedb.org/3";
@@ -40,4 +41,20 @@ export const getPopularTV = async () => {
   url.searchParams.set("api_key", API_KEY ?? "");
   url.searchParams.set("language", "en-US");
   return fetchJson<TmdbListResponse<TmdbMovie>>(url.toString());
+};
+
+export const getVideos = async (id: number, mediaType: "movie" | "tv") => {
+  const url = new URL(`${BASE_URL}/${mediaType}/${id}/videos`);
+  url.searchParams.set("api_key", API_KEY ?? "");
+  url.searchParams.set("language", "en-US");
+  return fetchJson<TmdbVideoResponse>(url.toString());
+};
+
+export const searchMulti = async (query: string) => {
+  const url = new URL(`${BASE_URL}/search/multi`);
+  url.searchParams.set("api_key", API_KEY ?? "");
+  url.searchParams.set("language", "en-US");
+  url.searchParams.set("query", query);
+  url.searchParams.set("include_adult", "false");
+  return fetchJson<{ results: any[] }>(url.toString());
 };

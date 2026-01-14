@@ -17,3 +17,20 @@ export type TmdbMovie = {
     total_results: number;
   };
   
+  export type TmdbVideo = {
+    id: string;
+    key: string; // YouTube key
+    site: "YouTube" | string;
+    type: "Trailer" | "Teaser" | "Clip" | string;
+    official?: boolean;
+    name: string;
+  };
+  
+  export type TmdbVideoResponse = {
+    id: number;
+    results: TmdbVideo[];
+  };
+
+  export type TmdbSearchResult = TmdbMovie & {
+    media_type?: "movie" | "tv" | "person";
+  };
